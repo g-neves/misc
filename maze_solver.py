@@ -82,10 +82,10 @@ def print_maze(maze: List[str]) -> None:
 
 def print_solved_maze(maze: List[str], path: List[Tuple[int, int]]) -> None:
     solved_maze = maze.copy()
-    for step in path[1:-1]:
+    for step in path:
         x = step[0]
         y = step[1]
-        solved_maze[x] = solved_maze[x][:y] + "x" + solved_maze[x][y+1:]
+        solved_maze[x] = solved_maze[x][:y] + "*" + solved_maze[x][y+1:]
         
     print_maze(solved_maze)
         
@@ -94,10 +94,14 @@ def print_solved_maze(maze: List[str], path: List[Tuple[int, int]]) -> None:
 if __name__ == "__main__":
     maze = [
         "S######",
-        "  #####",
-        "#  ####",
-        "##  ###",
-        "###E###",
+        " #     ",
+        " #     ",
+        " #     ",
+        " ##### ",
+        "       ",
+        "###### ",
+        "       ",
+        "######E",
     ]
 
     start, end = get_start_and_end(maze)
